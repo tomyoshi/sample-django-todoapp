@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form class="form-group" action="" method="POST">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Title</span>
+            {{ form.title }}
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">memo</span>
+            {{ form.memo }}
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">priority</span>
+            {{ form.priority }}
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">deadline</span>
+            {{ form.deadline }}
+        </div>
+    </div>
+    <input type="submit" value="Create">
+</form>
+
+
+{% endblock content %}
