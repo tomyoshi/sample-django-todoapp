@@ -14,6 +14,7 @@
 
 <div class="container">
     <a href="{% url 'create' %}" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Create</a>
+    
     {% for item in object_list %}
     <div class="card w-50 alert alert-{{ item.priority }}" role="alert" style="width: 18rem;">
         <div class="card-body">
