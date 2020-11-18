@@ -1,34 +1,41 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    <h1 class="display-4">Create View</h1>
+    <p class="lead">todo create</p>
+    </div>
+</div>
+{% endblock header %}
+
 {% block content %}
-
-<form class="form-group" action="" method="POST">
-    {% csrf_token %}
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Title</span>
-            {{ form.title }}
-        </div>
-    </div>
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">memo</span>
-            {{ form.memo }}
-        </div>
-    </div>
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">priority</span>
-            {{ form.priority }}
-        </div>
-    </div>
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">deadline</span>
-            {{ form.deadline }}
-        </div>
-    </div>
-    <input type="submit" value="Create">
-</form>
-
-
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <div class="row">
+                <div class="col-md-8">
+                    {{ form.title | as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{ form.priority | as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    {{ form.memo | as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{ form.deadline | as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </fieldset>
+        <input type="submit" class="btn btn-primary" value="Create">
+    </form>
+</div>
+    
 {% endblock content %}

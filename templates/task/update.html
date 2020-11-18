@@ -1,13 +1,38 @@
 {% extends 'base.html' %}
-{% block content %}
+{% load crispy_forms_tags %}
 
-<form action='' method='POST'>
-    {% csrf_token %}
-    {{ form.title }}
-    {{ form.memo }}
-    {{ form.priority }}
-    {{ form.deadline }}
-    <input type="submit" value="update">
-</form>
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Update View</h1>
+      <p class="lead">todo update</p>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+    <form action='' method='POST'>
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <div class="row">
+                <div class="col-md-8">
+                    {{ form.title | as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{ form.priority | as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">            
+                <div class="col-md-8">
+                    {{ form.memo | as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{ form.deadline | as_crispy_field }}
+                </div>
+        </fieldset>
+        <input type="submit" class="btn btn-success" value="update">
+    </form>
+</div>
 
 {% endblock content %}

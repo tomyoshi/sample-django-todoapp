@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
-{% block content %}
+{% load crispy_forms_tags %}
 
-<form action='' method="POST">
-    {% csrf_token %}
-    <input type="submit" value="delete">
-</form>
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Delete View</h1>
+      <p class="lead">Do you really want to delete?</p>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+    <form action='' method="POST">
+        {% csrf_token %}
+        <button class="btn btn-outline-danger" type="submit">Yes</button>
+    </form>
+</div>
 
 {% endblock content %}
